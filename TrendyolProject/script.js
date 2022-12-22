@@ -48,48 +48,25 @@ let center2=document.querySelector('.center2')
 let center=document.querySelector('.center')
 let centerImg=document.querySelector('.centerImg')
 
-// buttonSellect1.addEventListener('click',()=>{
-// console.log(centerImg.src);
-// centerImg.src="./photo/Rectangle293.svg"  
-// centerImg.style.width='360px' 
-// centerImg.style.marginTop='-3px' 
-// console.log(centerImg.src); 
-// buttonSellect1.addEventListener('click',()=>{
-//     centerImg.src="./photo/Rectangle 93.svg" 
-// })
-    
-// })
+let slideIndex = 1;
+showSlides(slideIndex);
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none"; 
+  }
+  
+  slides[slideIndex-1].style.display = "block";  
 
-
-let centerImgs=["./photo/Rectangle93.svg","./photo/Rectangle292.svg","./photo/Rectangle293.svg"]
-// buttonSellect1.addEventListener('click',ha)
-// function ha(){
-//     return
-//     i=0
-//         centerImg.src=`${centerImgs[i]}`
-//         i++;
-        
-// }
-// ha()
-let i=0;
-    
-        buttonSellect1.addEventListener('click',()=>{
-            if(i<centerImgs.length){
-                centerImg.src=`${centerImgs[i]}`;
-                console.log(centerImgs[i])
-                i++;
-            }
-         
-            
-        })
-        buttonSellect2.addEventListener('click',()=>{
-            if(centerImgs.length>i){
-                centerImg.src=`${centerImgs[i]}`;
-                console.log(centerImgs[i])
-                i--;
-            }
-         
-            
-        })
-    
-
+}
